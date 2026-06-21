@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 杂志专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f8f5f0;
+            font-family: "Noto Serif SC", "Source Han Serif SC", "Times New Roman", serif;
+            color: #2e2a24;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            margin: 2rem 0 3.5rem 0;
+            border-bottom: 1px solid #d9cfc1;
+            padding-bottom: 2.2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            color: #3b342c;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #7b7064;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: #ede6db;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+        }
+
+        .intro-block {
+            background: #ece4d9;
+            padding: 1.8rem 2.2rem;
+            border-left: 6px solid #a3917a;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            font-size: 1.02rem;
+            color: #3d362e;
+        }
+
+        .intro-block p {
+            margin-bottom: 0.2rem;
+        }
+
+        .intro-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #3b342c;
+            margin: 2.5rem 0 1.2rem 0;
+            letter-spacing: 0.02em;
+            border-left: 4px solid #b7a48d;
+            padding-left: 1rem;
+        }
+
+        .narrative p {
+            margin-bottom: 1.2rem;
+            text-indent: 2em;
+        }
+
+        .narrative a {
+            color: #7a5e44;
+            text-decoration: underline #cbb89f;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+            font-weight: 500;
+        }
+
+        .narrative a:hover {
+            color: #3b2a1b;
+            text-decoration-color: #8d7055;
+        }
+
+        .quote-box {
+            background: #f1ebe2;
+            border: 1px solid #dacfc0;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 4px 20px 20px 4px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+            font-style: normal;
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: "“";
+            font-size: 3.6rem;
+            color: #b7a088;
+            position: absolute;
+            top: -0.2rem;
+            left: 0.4rem;
+            line-height: 1;
+            font-family: Georgia, serif;
+        }
+
+        .quote-box p {
+            margin-left: 2rem;
+            color: #4a4137;
+        }
+
+        .grid-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 2rem 0 2.5rem 0;
+        }
+
+        .grid-item {
+            flex: 1 1 220px;
+            background: #ffffffd6;
+            backdrop-filter: blur(2px);
+            padding: 1.6rem 1.5rem;
+            border-radius: 6px;
+            border: 1px solid #e2d7c9;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .grid-item:hover {
+            background: #faf6f0;
+            border-color: #baa58f;
+        }
+
+        .grid-item h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #4b3d2e;
+            letter-spacing: 0.02em;
+        }
+
+        .grid-item p {
+            font-size: 0.96rem;
+            color: #5d5347;
+            text-indent: 0;
+        }
+
+        .faq-mini {
+            margin: 2.8rem 0 3rem 0;
+            padding: 1.2rem 0;
+            border-top: 1px dashed #d0c3b3;
+            border-bottom: 1px dashed #d0c3b3;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: #4f4337;
+            padding: 0.3rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-mini summary::before {
+            content: "▸";
+            margin-right: 0.5rem;
+            color: #9b8873;
+            font-size: 1.1rem;
+        }
+
+        .faq-mini details[open] summary::before {
+            content: "▾";
+        }
+
+        .faq-mini .answer {
+            padding: 0.2rem 0 0.8rem 1.6rem;
+            color: #4f453b;
+        }
+
+        .footer-note {
+            margin-top: 3.2rem;
+            padding: 1.8rem 0 1rem 0;
+            border-top: 1px solid #d9cfc1;
+            text-align: center;
+            font-size: 0.92rem;
+            color: #72685c;
+            letter-spacing: 0.02em;
+        }
+
+        .footer-note a {
+            color: #6c5844;
+            text-decoration: underline #c4b29d;
+            text-underline-offset: 4px;
+        }
+
+        .footer-note a:hover {
+            color: #382c20;
+        }
+
+        @media (max-width: 620px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .intro-block {
+                padding: 1.2rem 1.4rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .grid-highlights {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .quote-box {
+                padding: 1.2rem 1.2rem;
+            }
+            .quote-box::before {
+                font-size: 2.8rem;
+                top: 0rem;
+                left: 0.3rem;
+            }
+            .quote-box p {
+                margin-left: 1.4rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .intro-block {
+                padding: 1rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>爱游戏</h1>
+        <span class="sub">专题 · 杂志式浏览</span>
+    </div>
+
+    <div class="intro-block">
+        <p>这个网站并未堆砌复杂的入口与推荐，而是将「游戏」视为一种媒介与经验。如果你在寻找一个偏向笔记式、非商业化的游戏索引与观察地，很可能这里正是你要找的角落。</p>
+    </div>
+
+    <!-- 三段自然介绍 start -->
+    <div class="narrative">
+        <p>大概从几年前开始，一些小型游戏站点开始回归“个人主页”式的朴素排版：没有弹窗，没有排行榜，只有编辑者筛选过的游戏条目与短评。<a href="https://mainindex-aiyouxi.com.cn">爱游戏</a>也延续了这种气质——它的首页更像一份不断更新的阅读笔记，而非购物式的游戏超市。你会看到一些熟悉的经典作品，也会遇到几款独立开发者的冷门尝试，每一段描述都带着推荐者的主观感受。</p>
+
+        <p>在信息过载的时代，这种克制的选品反而让人愿意停留。站内没有铺天盖地的开屏广告，也没有根据用户行为推送的“猜你喜欢”。它更接近一种数字时代的杂志专栏：由一个对游戏有热情的编辑主导，按月或按主题更新一批游戏，附上简要的截图与游玩心得。对于习惯了算法推荐的玩家来说，这种“人的选择”反而构成一种新鲜的参考维度。</p>
+
+        <p>当然，它的内容密度并不高——你很难在这里找到每款游戏的详尽攻略或数据拆解。但如果你只是想找一个安静的地方，看看近期的游戏推荐，或者重拾一些已经被主流话题遗忘的老作品，那么这片自留地可能会带来一点意外收获。站点本身也透着一种朴素的维护感：页面结构简单，加载很快，字体与间距都照顾着长时间阅读的舒适度。</p>
+    </div>
+
+    <div class="quote-box">
+        <p>“打开这个网站不需要注册、不需要登录，甚至不需要任何社交账号。它只提供一种东西——一个人视角下的游戏世界。”</p>
+    </div>
+
+    <!-- 特点场景卡片 -->
+    <h2>适合这样使用</h2>
+    <div class="grid-highlights">
+        <div class="grid-item">
+            <h3>闲暇时翻阅</h3>
+            <p>没有催促感，每篇介绍独立成篇。适合午休、睡前或通勤时阅读一则游戏笔记。</p>
+        </div>
+        <div class="grid-item">
+            <h3>寻找冷门作品</h3>
+            <p>如果你已经厌倦了热榜上重复的几款游戏，这里的选录或许能提供一些不一样的选项。</p>
+        </div>
+        <div class="grid-item">
+            <h3>短暂回望</h3>
+            <p>偶尔更新的属性使它不像大型资料库那样面面俱到，但正因如此，每次浏览都像在翻阅一本旧杂志。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <details>
+            <summary>这个网站适合重度攻略玩家吗？</summary>
+            <div class="answer">可能不太适合。它更侧重游戏介绍与主观体验分享，而非流程攻略或数据统计。如果你想找系统性的攻略库，这个站点或许不是首选。</div>
+        </details>
+        <details>
+            <summary>内容更新频率如何？</summary>
+            <div class="answer">目前没有固定的更新周期，但大致保持每月至少一篇新内容。编辑会根据自己的游戏进度来撰写，因此更新的节奏也带有个人色彩。</div>
+        </details>
+        <details>
+            <summary>是否包含手机游戏推荐？</summary>
+            <div class="answer">偶尔会涉及移植到移动端的独立作品或经典复刻，但整体上以主机、PC 平台的作品为主，移动端原生游戏占比较低。</div>
+        </details>
+    </div>
+    <!-- 三段介绍 end -->
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+        <p>如果你对这种安静的游戏推荐方式感兴趣，不妨直接前往 <a href="https://mainindex-aiyouxi.com.cn">爱游戏</a>，看看最新的一篇笔记写了什么。</p>
+        <p style="margin-top:0.6rem; color:#8f8377;">—— 杂志专题 · 2025 ——</p>
+    </div>
+
+</body>
+</html>
