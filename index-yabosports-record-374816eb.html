@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>亚博体育 · 持续关注与再次访问</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", system-ui, sans-serif;
+            background: #f5f7fa;
+            color: #1e2a3a;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        a {
+            color: #1f6feb;
+            text-decoration: none;
+            transition: color 0.2s, box-shadow 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+
+        a:hover {
+            color: #0d47a1;
+            border-bottom: 1px solid #1f6feb;
+        }
+
+        /* ----- hero 深色区域 ----- */
+        .hero {
+            background: linear-gradient(145deg, #0b1729 0%, #14273e 50%, #1a304a 100%);
+            color: #eef3f8;
+            padding: 4.5rem 1.5rem 3.8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #f5f7fa;
+            border-radius: 0 0 40% 40% / 0 0 100% 100%;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto 1.2rem;
+            font-size: 1.1rem;
+            color: #cbdae9;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #2a4b70;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #dce6f0;
+            margin-top: 0.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* ----- 内容卡片容器 (浅色) ----- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 2.8rem 0;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #0b1e2f;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 48px;
+            height: 3px;
+            background: #1f6feb;
+            border-radius: 4px;
+        }
+
+        /* 卡片网格 (优势区) */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 20, 40, 0.03);
+            transition: transform 0.2s, box-shadow 0.25s;
+            border: 1px solid #eef1f5;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #0f263b;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #33485d;
+        }
+
+        .card .emoji-badge {
+            display: inline-block;
+            background: #e9f0f9;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #1f4970;
+            margin-bottom: 0.75rem;
+        }
+
+        /* FAQ 摘要 */
+        .faq-list {
+            margin: 1.5rem 0 0.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1rem 1.4rem;
+            border-left: 3px solid #1f6feb;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+        }
+
+        .faq-item strong {
+            color: #0f263b;
+            display: block;
+            margin-bottom: 0.2rem;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            color: #3d556b;
+            font-size: 0.95rem;
+        }
+
+        /* 说明区 / 再次访问提示 */
+        .note-box {
+            background: #eef5fe;
+            border-radius: 18px;
+            padding: 2rem 2rem 1.8rem;
+            margin: 1.8rem 0;
+            border: 1px solid #d3e3f7;
+        }
+
+        .note-box p {
+            margin-bottom: 0.7rem;
+        }
+
+        .link-embed {
+            font-weight: 500;
+        }
+
+        /* 底部 */
+        .footer {
+            background: #0b1729;
+            color: #a8bbd0;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            margin-top: 1.8rem;
+        }
+
+        .footer a {
+            color: #8bb3e6;
+            border-bottom: none;
+        }
+
+        .footer a:hover {
+            color: #b8d4ff;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            max-width: 700px;
+            margin: 0.2rem auto;
+        }
+
+        .footer small {
+            display: block;
+            margin-top: 1.2rem;
+            font-size: 0.8rem;
+            color: #6a7f98;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            .hero {
+                padding: 3rem 1rem 2.8rem;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .section {
+                padding: 2rem 0;
+            }
+            .grid-3 {
+                gap: 1.2rem;
+            }
+            .card {
+                padding: 1.4rem;
+            }
+            .note-box {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 5rem 2rem 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== HERO ====== -->
+    <header class="hero">
+        <h1>亚博体育 · 一如既往</h1>
+        <p>再次打开书签，或是偶然想起——这里始终是稳定、清晰的信息起点。<br>收藏、关注、常回来看看。</p>
+        <div class="badge">持续更新 · 内容索引</div>
+    </header>
+
+    <!-- ====== 优势区 + 说明 混合 ====== -->
+    <main class="container">
+        
+        <!-- 优势卡片区 -->
+        <section class="section">
+            <h2 class="section-title">为什么持续关注</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="emoji-badge">📌 收藏友好</div>
+                    <h3>入口清晰</h3>
+                    <p>页面结构直观，无论间隔多久回来，都能快速找到需要的信息点。适合加入浏览器收藏夹或笔记。</p>
+                </div>
+                <div class="card">
+                    <div class="emoji-badge">🔄 再次访问</div>
+                    <h3>内容沉淀</h3>
+                    <p>不是一闪而过的推广页，而是经过整理的介绍与说明。每次打开都能获得相对完整的背景与指引。</p>
+                </div>
+                <div class="card">
+                    <div class="emoji-badge">📋 简洁可靠</div>
+                    <h3>无冗余干扰</h3>
+                    <p>没有弹窗或夸张横幅。干净的信息布局，让你把注意力放在真正该看的地方。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 说明区：再次访问 / 收藏角度 -->
+        <section class="section">
+            <h2 class="section-title">关于再次访问与收藏</h2>
+            <div class="note-box">
+                <p>如果你曾经了解过 <a href="https://index-yabosports.com" class="link-embed">亚博体育</a>，并且希望保持一个干净的信息锚点，这个页面可以成为你的常驻入口。</p>
+                <p>不需要每次重新搜索，也不用担心忘记细节。把地址加入书签，或者记在文档里，下次回来时依然保持同样的结构——内容会逐步整理，但不会变得杂乱。</p>
+                <p style="margin-top: 1rem;">有些信息值得反复查看，而一个好的索引页能节省大量时间。我们不追求花哨的承诺，只希望每个访客都能稳定地找到想了解的部分。</p>
+            </div>
+        </section>
+
+        <!-- FAQ 摘要（从持续关注角度） -->
+        <section class="section">
+            <h2 class="section-title">常见关注点 · 摘要</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <strong>❓ 页面会频繁变动吗？</strong>
+                    <p>结构保持稳定，仅在有信息更新时做补充或优化。你可以放心收藏，不必每次重新适应布局。</p>
+                </div>
+                <div class="faq-item">
+                    <strong>❓ 为什么推荐保存这个地址？</strong>
+                    <p>很多临时页面会在几周后失效或改版。而这里作为长期维护的索引页，适合用作固定参照点。</p>
+                </div>
+                <div class="faq-item">
+                    <strong>❓ 关于 <a href="https://index-yabosports.com">亚博体育</a> 的背景说明？</strong>
+                    <p>页面提供的是整理过的概要信息，不包含夸大描述。你可以通过链接直接访问主要信息页面，自行判断与了解。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 附加提示：关注方式 -->
+        <section class="section" style="padding-top: 0.5rem; padding-bottom: 1.5rem;">
+            <div style="background: #ffffff; border-radius: 18px; padding: 1.5rem 2rem; border: 1px solid #e4ebf3;">
+                <p style="font-size: 1rem; color: #1f3a52;">📎 如果你想保持对 <a href="https://index-yabosports.com">亚博体育</a> 的关注，不妨将本页加入浏览器书签，或记录在常用笔记中。这样即使间隔数周，也能直接回到同一信息起点。</p>
+                <p style="margin-top: 0.8rem; color: #3d5a78;">无需反复搜索，也不必担心遗漏变更——持续关注的本质是有一个可靠、不消失的落点。</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ====== 底部 ====== -->
+    <footer class="footer">
+        <p><a href="https://index-yabosports.com">亚博体育</a> · 信息索引页</p>
+        <p style="margin-top: 0.5rem;">内容保持平实、克制。不构成任何承诺或引导。</p>
+        <small>© 持续维护 · 仅供信息参考</small>
+    </footer>
+
+</body>
+</html>
